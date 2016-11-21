@@ -1,0 +1,31 @@
+extends layout
+block title
+	script(src="/javascripts/jquery-1.8.3.min.js")
+	title= title
+block content
+	h3(style="text-align:center") 数据更新
+	h3 #{result}
+	form(action="update",method="post")
+		input(type="hidden",name="id",value="#{result._id}")
+		table
+			tr
+				td 标题
+				td
+					input(type="text",name="title",value='#{result.title}')
+			tr
+				td 作者
+				td
+					input(type="text",name="author",value='#{result.author}')
+			tr
+				td 内容
+				td
+					input(type="text",name="content",value='#{result.content}')
+			tr
+				td 日期
+				td
+					- var d = new Date(result.date);
+					- var dates = d.getFullYear()+'-'+d.getMonth()+'-'+d.getDate();
+					input(type="text",name="date",value='#{dates}')
+			tr
+				td(colspan="2")
+					input(type="submit",value="提交")

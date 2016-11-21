@@ -1,0 +1,26 @@
+extends layout
+block title
+	title= title
+block content
+	h3(style="text-align:center") 数据插入
+	form(action="insert",method="post")
+		table
+			tr
+				td 标题
+				td
+					input(type="text",name="title")
+			tr
+				td 作者
+				td
+					input(type="text",name="author")
+			tr
+				td 内容
+				td
+					input(type="text",name="content")
+			tr
+				td 日期
+				td
+					input(type="date",name="date")
+			tr
+				td(colspan="2")
+					input(type="submit",value="提交")

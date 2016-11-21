@@ -1,0 +1,31 @@
+extends layout
+block title
+	script(src="/javascripts/jquery-1.8.3.min.js")
+	title= title
+block content
+	table
+		caption
+			h1= title
+		thead
+			th 标题
+			th 作者
+			th 内容
+			th 日期
+			th 操作
+		tbody
+			- for(var i=0;i<result.length;i++)
+				tr
+					for(var val in result[i])
+						td= result[i].title
+						td= result[i].author
+						td= result[i].content
+						- var d = new Date(result[i].date); 
+						- var dates = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()
+						td= dates
+						td(style="text-align:center;")
+							a(href="insert") 增加
+							a(href="/update?id="+result[i]._id) 更新
+							//a(onclick="del('"+result[i]._id+"')") 删除
+							a(href="/delete?id="+result[i]._id) 删除
+
+	script(type='text/javascript').
