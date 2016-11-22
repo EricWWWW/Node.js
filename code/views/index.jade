@@ -1,0 +1,7 @@
+extends layout
+block content
+	h1= title
+	p Welcome to #{title}
+	form(action="code",method="post")
+		input(type="text",name="validate")
+		input(type="submit",value="发送")
